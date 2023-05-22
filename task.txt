@@ -1,0 +1,23 @@
+>>> Product.objects.filter(name__exact = 'T-shirt')
+<QuerySet [<Product: T-shirt>]>
+
+>>> Product.objects.filter(name__ixact = 'Jeans')
+
+>>> Product.objects.filter(name__startswith='Je')
+<QuerySet [<Product: Jeans>]>
+
+>>> Product.objects.filter(name__endswith='ns')
+<QuerySet [<Product: Jeans>]>
+
+>>> Product.objects.filter(name__contains='hir')
+<QuerySet [<Product: T-shirt>]>
+
+>>> Product.objects.order_by('price').values('price') 
+<QuerySet [{'price': 15.0}, {'price': 19.0}, {'price': 35.0}, {'price': 
+79.0}, {'price': 89.0}]>
+>>> 
+
+>>> Product.objects.order_by('-price').values('price')
+<QuerySet [{'price': 89.0}, {'price': 79.0}, {'price': 35.0}, {'price': 
+19.0}, {'price': 15.0}]>
+>>>
